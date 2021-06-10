@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "importHelpers": true,
+    "noEmitHelpers": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmitOnError": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "allowSyntheticDefaultImports": true,
+    "jsx": "react",
+    "lib": ["es2017", "dom", "esnext.asynciterable"],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "preserveConstEnums": true,
+    "pretty": true,
+    "removeComments": true,
+    "target": "es6",
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+
+    "baseUrl": "./",
+    "outDir": "./dist",
+    "paths": {
+      "~/*": ["./src/*"]
+    }
+  },
+
+  "include": ["src/**/*"],
+  "exclude": ["dist", "node_modules"]
+}
