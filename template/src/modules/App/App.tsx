@@ -1,26 +1,27 @@
-import React, { useEffect } from 'react'
-import { View, Text, StyleSheet } from 'react-native'
-import RNBootSplash from 'react-native-bootsplash'
+import { NavigationContainer } from '@react-navigation/native'
+import { createStackNavigator } from '@react-navigation/stack'
+import React from 'react'
 
-import { Icons } from '~/assets'
+import { Routes } from '~/navigation'
 
-export const App = () => {
-  useEffect(() => {
-    RNBootSplash.hide()
-  }, [])
+import { HomeScreen } from '../Home'
 
+const Stack = createStackNavigator()
+
+const RootStack: React.FC = () => {
   return (
-    <View style={styles.container}>
-      <Icons.Logo />
-      <Text>Hello!</Text>
-    </View>
+    <Stack.Navigator initialRouteName={Routes.Home}>
+      <Stack.Screen component={HomeScreen} name={Routes.Home} />
+    </Stack.Navigator>
   )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-})
+export const App = () => {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen component={RootStack} name={Routes.Root} options={{ headerShown: false }} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  )
+}
