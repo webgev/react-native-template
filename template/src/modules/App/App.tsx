@@ -12,7 +12,7 @@ export const App = () => {
   return (
     <View style={styles.container}>
       <Icons.Logo />
-      <Text>Hello Neat!</Text>
+      <Text>Hello!</Text>
     </View>
   )
 }
