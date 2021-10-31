@@ -1,26 +1,24 @@
 import React from 'react'
-import { Button } from 'react-native'
 
 import { Span } from '~/components'
 import { HeaderTitle, Layout } from '~/components/Layout'
 import { useTranslate } from '~/lib'
 import { Routes, Screen } from '~/navigation'
 
-import strings from './Home.i18n.json'
+import strings from './InnerScreen.i18n.json'
 
-export interface HomeScreenProps {}
+export type InnerScreenProps = undefined
 
-export const HomeScreen: Screen<Routes.Home> = ({ navigation }) => {
+export const InnerScreen: Screen<Routes.HomeInner> = () => {
   const { t } = useTranslate()
 
   return (
     <Layout center>
       <Span>{t(strings.title)}</Span>
-      <Button title="Inner screen" onPress={() => navigation.push(Routes.HomeInner)} />
     </Layout>
   )
 }
 
-HomeScreen.options = () => ({
+InnerScreen.options = () => ({
   headerTitle: () => <HeaderTitle descriptor={strings.title} />,
 })
