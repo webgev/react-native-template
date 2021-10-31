@@ -1,6 +1,3 @@
 {
-  "src.modules.Home.screens.HomeScreen.Home.title": {
-    "id": "title",
-    "defaultMessage": "Home"
-  }
+  "src.modules.Home.screens.HomeScreen.Home.title": "Home"
 }

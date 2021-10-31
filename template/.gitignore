@@ -1,6 +1,7 @@
 # OSX
 #
 .DS_Store
+dist
 
 # Xcode
 #
@@ -38,8 +39,9 @@ yarn-error.log
 # BUCK
 buck-out/
 \.buckd/
-*.keystore
 !debug.keystore
+android/app/release/
+android/*.hprof
 
 # fastlane
 #
@@ -61,4 +63,6 @@ buck-out/
 # Code editors
 
 .vscode
-.DS_Store
+
+.husky/commit-msg
+*.bundle

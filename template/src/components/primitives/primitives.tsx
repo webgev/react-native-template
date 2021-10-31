@@ -15,6 +15,8 @@ import {
   TypographyProps,
 } from 'styled-system'
 
+import { textStyles, TextType } from '~/theme'
+
 export type BoxProps = BorderProps &
   ColorProps &
   FlexboxProps &
@@ -30,6 +32,7 @@ export type SpanProps = ColorProps &
   TypographyProps &
   SpaceProps & {
     center?: boolean
+    type?: TextType
   }
 
 const boxStyles = css<BoxProps>`
@@ -58,11 +61,11 @@ export const SafeAreaBox = styled(SafeAreaView)<BoxProps>`
   ${boxStyles}
 `
 
-export const Flex = styled(Box)<{ center?: boolean }>`
+export const Flex = styled(Box)`
   flex: 1;
 `
 
-export const SafeAreaFlex = styled(SafeAreaBox)<{ center?: boolean }>`
+export const SafeAreaFlex = styled(SafeAreaBox)`
   flex: 1;
 `
 
@@ -100,7 +103,7 @@ export const Span = styled.Text<SpanProps>`
   ${space}
   ${color}
   ${({ center }) => center && `text-align: center`}
-  font-family: 'Roboto-Medium'
+  ${({ type }) => type && textStyles[type]}
 `
 
 export const ImageBox = styled.Image`

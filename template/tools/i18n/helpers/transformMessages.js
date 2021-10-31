@@ -1,9 +1,5 @@
 const buildPrefix = (fileName, rootContext) =>
-  fileName
-    .replace(rootContext, '')
-    .replace('.i18n.json', '')
-    .replace(/\//g, '.')
-    .slice(1)
+  fileName.replace(rootContext, '').replace('.i18n.json', '').replace(/\//g, '.').slice(1)
 
 module.exports = {
   extractMessages: (fileName, rootContext, messages) => {
@@ -12,7 +8,7 @@ module.exports = {
     return Object.keys(messages).reduce(
       (memo, currentKey) => ({
         ...memo,
-        [`${prefix}.${currentKey}`]: messages[currentKey],
+        [`${prefix}.${currentKey}`]: messages[currentKey].defaultMessage,
       }),
       {},
     )

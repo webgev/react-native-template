@@ -7,9 +7,8 @@ import { IntlProvider, useIntl } from 'react-intl'
 import { useLocale } from './LocaleProvider'
 import { Locale } from './locale'
 import en from './translates/en.json'
-import ru from './translates/ru.json'
 
-export type Message = keyof typeof ru & keyof typeof en
+export type Message = keyof typeof en
 
 export const TRANSLATION = {
   [Locale.En]: en,

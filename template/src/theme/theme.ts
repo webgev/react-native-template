@@ -1,6 +1,10 @@
 import { DefaultTheme } from 'styled-components'
 
+import { s } from '~/lib/size'
+
 export type ValueOf<T> = T[keyof T]
+
+export const PADDING_HORIZONTAL = s(16)
 
 export const colors = {
   background: '#FFFFFF',
@@ -11,7 +15,7 @@ export const colors = {
 } as const
 
 const space: number[] = []
-const fontSizes = [12, 14, 16, 20, 24, 32, 48, 64, 72]
+const fontSizes: number[] = []
 
 export const duration = {
   fast: 200,

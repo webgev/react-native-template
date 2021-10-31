@@ -2,6 +2,8 @@ import React from 'react'
 
 import { Descriptor, useTranslate } from '~/lib/translate'
 
+import { Span } from '../Primitives'
+
 export interface HeaderTitleProps {
   descriptor: Descriptor
 }
@@ -9,5 +11,5 @@ export interface HeaderTitleProps {
 export const HeaderTitle: React.FC<HeaderTitleProps> = ({ descriptor }) => {
   const { t } = useTranslate()
 
-  return <>{t(descriptor)}</>
+  return <Span>{t(descriptor)}</Span>
 }

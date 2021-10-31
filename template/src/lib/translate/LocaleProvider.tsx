@@ -16,7 +16,7 @@ export const LocaleProvider: React.FC = ({ children }) => {
 
   const updateLocale = useCallback((locale: Locale) => {
     setLocale(locale)
-    setPersistLocale(locale)
+    void setPersistLocale(locale)
   }, [])
 
   const state = useMemo<LocaleType>(() => [locale, updateLocale], [locale, updateLocale])
