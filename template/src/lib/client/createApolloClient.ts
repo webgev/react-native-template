@@ -6,28 +6,13 @@ import {
 } from '@apollo/client'
 import { setContext } from '@apollo/client/link/context'
 import { onError } from '@apollo/client/link/error'
-import { config } from '~/config'
-import { offsetLimitPagination } from '~/utils'
-
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { persistCache, AsyncStorageWrapper } from 'apollo3-cache-persist'
 
+import { config } from '~/config'
+
 export const createApolloClient = async () => {
-  const cache = new InMemoryCache({
-    typePolicies: {
-      GameOfDay: {
-        keyFields: ['id'],
-      },
-      Query: {
-        fields: {
-          games: {
-            keyArgs: false,
-            merge: offsetLimitPagination,
-          },
-        },
-      },
-    },
-  })
+  const cache = new InMemoryCache()
 
   await persistCache({
     cache,

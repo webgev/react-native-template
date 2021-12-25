@@ -1,0 +1,7 @@
+generated/
+tools/
+
+babel.config.js
+metro.config.js
+react-native.config.js
+index.js

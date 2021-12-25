@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button } from 'react-native'
 
+import { Icons } from '~/assets'
 import { Span } from '~/components'
 import { HeaderTitle, Layout } from '~/components/Layout'
 import { useTranslate } from '~/lib'
@@ -15,6 +16,7 @@ export const HomeScreen: Screen<Routes.Home> = ({ navigation }) => {
 
   return (
     <Layout center>
+      <Icons.Logo />
       <Span>{t(strings.title)}</Span>
       <Button title="Inner screen" onPress={() => navigation.push(Routes.HomeInner)} />
     </Layout>

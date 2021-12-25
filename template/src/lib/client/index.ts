@@ -1,1 +1,1 @@
-export * from './ApolloProvider'
+export * from './ClientProvider'

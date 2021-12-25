@@ -4,7 +4,10 @@ import FlashMessage, { showMessage } from 'react-native-flash-message'
 
 interface State {}
 
-interface Actions {}
+interface Actions {
+  showMessage: typeof showMessage
+  error: (error: unknown, defaultMessage?: string) => void
+}
 
 const Context = createContext<State & Actions>(null as never)
 

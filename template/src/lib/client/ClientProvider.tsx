@@ -1,12 +1,13 @@
+import { ApolloProvider, useApolloClient } from '@apollo/client'
 import React, { useState } from 'react'
-import { ApolloProvider as ApolloProviderBase, useApolloClient } from '@apollo/client'
+
+import { useAsyncEffect } from '~/hooks'
 
 import { createApolloClient, ApolloClient } from './createApolloClient'
-import { useAsyncEffect } from '~/hooks'
 
 export const useClient = async () => useApolloClient() as ApolloClient
 
-export const ApolloProvider: React.FC = ({ children }) => {
+export const ClientProvider: React.FC = ({ children }) => {
   const [client, setClient] = useState<ApolloClient>()
 
   useAsyncEffect(async () => {
@@ -16,5 +17,5 @@ export const ApolloProvider: React.FC = ({ children }) => {
 
   if (!client) return null
 
-  return <ApolloProviderBase client={client}>{children}</ApolloProviderBase>
+  return <ApolloProvider client={client}>{children}</ApolloProvider>
 }
