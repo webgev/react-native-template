@@ -34,7 +34,7 @@
     "isolatedModules": true,
     "noEmit": true,
 
-    "types": ["styled-components-react-native", "jest"]
+    "types": ["jest"]
   },
 
   "include": ["src/**/*"],

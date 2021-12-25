@@ -1,21 +1,19 @@
+import { Flex, IFlexProps, useTheme } from 'native-base'
 import React from 'react'
 
-import { colors, PADDING_HORIZONTAL } from '~/lib/theme'
-
-import { SafeAreaFlex, Flex, BoxProps } from '../Primitives'
-
-interface Props extends BoxProps {
-  children?: React.ReactNode
+interface Props extends IFlexProps {
   hasPaddingHorizontal?: boolean
-  hasSafeAreaFlex?: boolean
+  center?: boolean
 }
 
-export const Layout = (props: Props) => {
-  const Wrapper: React.ComponentType<BoxProps> = props.hasSafeAreaFlex ? SafeAreaFlex : Flex
+export const Layout = ({ center, ...props }: Props) => {
+  const theme = useTheme()
   return (
-    <Wrapper
-      backgroundColor={colors.white}
-      paddingHorizontal={props.hasPaddingHorizontal ? PADDING_HORIZONTAL : undefined}
+    <Flex
+      align={center ? 'center' : undefined}
+      backgroundColor={theme.colors.backgroundColor}
+      flex={1}
+      justify={center ? 'center' : undefined}
       {...props}
     />
   )

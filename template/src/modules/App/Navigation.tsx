@@ -2,6 +2,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import React from 'react'
 
+import { useTheme } from '~/lib/theme'
 import { Routes } from '~/navigation'
 
 import { HomeScreen, InnerScreen } from '../Home'
@@ -16,7 +17,26 @@ export const Screens = [
 ))
 
 const RootStack: React.FC = () => {
-  return <Stack.Navigator initialRouteName={Routes.Home}>{Screens}</Stack.Navigator>
+  const { getColor, colors } = useTheme()
+  return (
+    <Stack.Navigator
+      initialRouteName={Routes.Home}
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: getColor(colors.headerBackgroundColor),
+        },
+        headerBackTitleStyle: {
+          color: getColor(colors.headerTitle),
+        },
+        headerTintColor: getColor(colors.headerTitle),
+        headerTitleStyle: {
+          color: getColor(colors.headerTitle),
+        },
+      }}
+    >
+      {Screens}
+    </Stack.Navigator>
+  )
 }
 
 export const Navigation = () => {

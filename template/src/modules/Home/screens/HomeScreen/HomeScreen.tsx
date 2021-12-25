@@ -1,10 +1,10 @@
+import { Button, Text } from 'native-base'
 import React from 'react'
 
 import { Icons } from '~/assets'
-import { Span, Button } from '~/components'
-import { HeaderTitle, Layout } from '~/components/Layout'
+import { Layout } from '~/components'
 import { useTranslate } from '~/lib'
-import { Routes, Screen } from '~/navigation'
+import { Routes, Screen, useNavigationOptions } from '~/navigation'
 
 import strings from './Home.i18n.json'
 
@@ -13,15 +13,13 @@ export interface HomeScreenProps {}
 export const HomeScreen: Screen<Routes.Home> = ({ navigation }) => {
   const { t } = useTranslate()
 
+  useNavigationOptions({ title: strings.title })
+
   return (
     <Layout center>
       <Icons.Logo />
-      <Span>{t(strings.title)}</Span>
-      <Button title="Inner screen" onPress={() => navigation.push(Routes.HomeInner)} />
+      <Text>{t(strings.title)}</Text>
+      <Button onPress={() => navigation.push(Routes.HomeInner)}>Inner screen</Button>
     </Layout>
   )
 }
-
-HomeScreen.options = () => ({
-  headerTitle: () => <HeaderTitle descriptor={strings.title} />,
-})

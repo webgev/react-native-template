@@ -1,5 +1,5 @@
+import { NativeBaseProvider } from 'native-base'
 import React from 'react'
-import { ThemeProvider } from 'styled-components'
 
 import { LocaleProvider, TranslateProvider } from '~/lib'
 import { ClientProvider } from '~/lib/client'
@@ -9,7 +9,7 @@ import { theme } from '~/lib/theme'
 
 export const Providers: React.FC = ({ children }) => {
   return (
-    <ThemeProvider theme={theme}>
+    <NativeBaseProvider theme={theme}>
       <LocaleProvider>
         <TranslateProvider>
           <NotifyProvider>
@@ -19,6 +19,6 @@ export const Providers: React.FC = ({ children }) => {
           </NotifyProvider>
         </TranslateProvider>
       </LocaleProvider>
-    </ThemeProvider>
+    </NativeBaseProvider>
   )
 }
