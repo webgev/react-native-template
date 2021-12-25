@@ -1,3 +1,3 @@
-import { Logo } from './Logo/Logo'
+import Logo from './logo.svg'
 
 export const Icons = { Logo }

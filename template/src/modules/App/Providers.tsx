@@ -2,7 +2,8 @@ import React from 'react'
 import { ThemeProvider } from 'styled-components'
 
 import { LocaleProvider, TranslateProvider } from '~/lib'
-import { StoreProvider } from '~/lib/StoreProvider'
+import { NotifyProvider } from '~/lib/notify'
+import { StoreProvider } from '~/lib/store'
 import { theme } from '~/theme'
 
 export const Providers: React.FC = ({ children }) => {
@@ -10,7 +11,9 @@ export const Providers: React.FC = ({ children }) => {
     <ThemeProvider theme={theme}>
       <LocaleProvider>
         <TranslateProvider>
-          <StoreProvider>{children}</StoreProvider>
+          <NotifyProvider>
+            <StoreProvider>{children}</StoreProvider>
+          </NotifyProvider>
         </TranslateProvider>
       </LocaleProvider>
     </ThemeProvider>

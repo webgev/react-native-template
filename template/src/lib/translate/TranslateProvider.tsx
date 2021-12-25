@@ -14,11 +14,8 @@ export const TRANSLATION = {
   [Locale.En]: en,
 }
 
-interface Props {
-  children: React.ReactNode
-}
 
-export const TranslateProvider = ({ children }: Props) => {
+export const TranslateProvider: React.FC = ({ children }) => {
   const [locale] = useLocale()
   return (
     <IntlProvider defaultLocale={locale} locale={locale} messages={TRANSLATION[locale]}>
