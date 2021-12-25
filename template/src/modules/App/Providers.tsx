@@ -5,7 +5,7 @@ import { LocaleProvider, TranslateProvider } from '~/lib'
 import { ClientProvider } from '~/lib/client'
 import { NotifyProvider } from '~/lib/notify'
 import { StoreProvider } from '~/lib/store'
-import { theme } from '~/theme'
+import { theme } from '~/lib/theme'
 
 export const Providers: React.FC = ({ children }) => {
   return (

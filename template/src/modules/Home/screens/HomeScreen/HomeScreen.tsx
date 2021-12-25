@@ -1,8 +1,7 @@
 import React from 'react'
-import { Button } from 'react-native'
 
 import { Icons } from '~/assets'
-import { Span } from '~/components'
+import { Span, Button } from '~/components'
 import { HeaderTitle, Layout } from '~/components/Layout'
 import { useTranslate } from '~/lib'
 import { Routes, Screen } from '~/navigation'

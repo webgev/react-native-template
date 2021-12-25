@@ -12,14 +12,14 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "allowSyntheticDefaultImports": true,
-    "jsx": "react",
-    "lib": ["es2017", "dom", "esnext.asynciterable"],
+    "jsx": "react-native",
+    "lib": ["dom", "dom.iterable", "esnext"],
     "module": "esnext",
     "moduleResolution": "node",
     "preserveConstEnums": true,
     "pretty": true,
     "removeComments": true,
-    "target": "es6",
+    "target": "esnext",
     "skipLibCheck": true,
     "resolveJsonModule": true,
 
@@ -27,7 +27,14 @@
     "outDir": "./dist",
     "paths": {
       "~/*": ["./src/*"]
-    }
+    },
+
+    "allowJs": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "noEmit": true,
+
+    "types": ["styled-components-react-native", "jest"]
   },
 
   "include": ["src/**/*"],

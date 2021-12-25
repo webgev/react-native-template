@@ -15,7 +15,7 @@ import {
   TypographyProps,
 } from 'styled-system'
 
-import { textStyles, TextType } from '~/theme'
+import { textStyles, TextType } from '~/lib/theme'
 
 export type BoxProps = BorderProps &
   ColorProps &

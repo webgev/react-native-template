@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { colors, PADDING_HORIZONTAL } from '~/theme'
+import { colors, PADDING_HORIZONTAL } from '~/lib/theme'
 
 import { SafeAreaFlex, Flex, BoxProps } from '../Primitives'
 

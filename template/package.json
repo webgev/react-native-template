@@ -104,9 +104,18 @@
     "webpack-merge": "^4.2.2"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "react-native",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
   },
   "resolutions": {
+    "@types/react": "^17",
     "styled-components": "^5"
   }
 }
