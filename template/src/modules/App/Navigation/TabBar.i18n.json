@@ -1,0 +1,10 @@
+{
+  "tabsHome": {
+    "id": "tabsHome",
+    "defaultMessage": "Home"
+  },
+  "tabsInner": {
+    "id": "tabsInner",
+    "defaultMessage": "Inner"
+  }
+}
