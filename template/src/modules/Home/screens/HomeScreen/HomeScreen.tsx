@@ -1,4 +1,4 @@
-import { Button, Input, Text } from 'native-base'
+import { Button, Text } from 'native-base'
 import React from 'react'
 
 import { Icons } from '~/assets'
@@ -20,8 +20,6 @@ export const HomeScreen: Screen<Routes.Home> = ({ navigation }) => {
       <Icons.Logo />
       <Text>{t(strings.title)}</Text>
       <Button onPress={() => navigation.push(Routes.HomeInner)}>Inner screen</Button>
-
-      <Input isFullWidth placeholder="ASD" variant="unstyled" />
     </Layout>
   )
 }
