@@ -11,6 +11,8 @@ import { persistCache, AsyncStorageWrapper } from 'apollo3-cache-persist'
 
 import { config } from '~/config'
 
+import { getAuthorizationData } from './authData'
+
 export const createApolloClient = async () => {
   const cache = new InMemoryCache()
 
@@ -30,6 +32,7 @@ export const createApolloClient = async () => {
         return {
           headers: {
             ...headers,
+            ...(await getAuthorizationData()),
           },
         }
       }),

@@ -3,6 +3,8 @@ export enum Routes {
 
   Root = 'Root',
 
+  Login = 'Login',
+
   HomeStack = 'HomeStack',
   InnerStack = 'InnerStack',
 
