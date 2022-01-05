@@ -8,7 +8,9 @@ import { Routes, Screen, useNavigationOptions } from '~/navigation'
 
 import strings from './Home.i18n.json'
 
-export interface HomeScreenProps {}
+export interface HomeScreenProps {
+  a: number
+}
 
 export const HomeScreen: Screen<Routes.Home> = ({ navigation }) => {
   const { t } = useTranslate()

@@ -1,12 +1,27 @@
 import React from 'react'
+import { WebgevApp } from 'webgev-app'
+
+import { LocaleProvider, TranslateProvider } from '~/lib'
+import { ClientProvider } from '~/lib/client'
+import { NotifyProvider } from '~/lib/notify'
+import { StoreProvider } from '~/lib/store'
+import { ThemeProvider } from '~/lib/theme'
 
 import { Navigation } from './Navigation'
-import { Providers } from './Providers'
 
 export const App = () => {
   return (
-    <Providers>
+    <WebgevApp.Providers
+      providers={[
+        ThemeProvider,
+        LocaleProvider,
+        TranslateProvider,
+        NotifyProvider,
+        ClientProvider,
+        StoreProvider,
+      ]}
+    >
       <Navigation />
-    </Providers>
+    </WebgevApp.Providers>
   )
 }

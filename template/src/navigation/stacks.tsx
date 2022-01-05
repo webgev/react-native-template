@@ -1,15 +1,11 @@
-import { createStackNavigator } from '@react-navigation/stack'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import React from 'react'
 
 import { HomeScreen, InnerScreen } from '~/modules/Home'
 
 import { Routes } from './routes'
 
-const Stack = createStackNavigator()
-
-export interface TabsProps extends Record<string, Record<string, unknown> | undefined> {
-  [Routes.Tabs]: undefined | { screen: Routes | null }
-}
+const Stack = createNativeStackNavigator()
 
 export const HomeScreens = [
   { screen: HomeScreen, name: Routes.Home },
