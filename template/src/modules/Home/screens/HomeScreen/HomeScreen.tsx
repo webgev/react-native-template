@@ -3,7 +3,7 @@ import React from 'react'
 
 import { Icons } from '~/assets'
 import { Layout } from '~/components'
-import { useTranslate } from '~/lib'
+import { useTranslate } from '~/lib/translate'
 import { Routes, Screen, useNavigationOptions } from '~/navigation'
 
 import strings from './Home.i18n.json'

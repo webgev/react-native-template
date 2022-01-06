@@ -1,5 +1,6 @@
-import { useCallback, useMemo } from 'react'
 import { QueryResult, NetworkStatus } from '@apollo/client'
+import { useCallback, useMemo } from 'react'
+
 import { isApolloLoading } from '~/utils'
 
 import { useApolloLoadingStates } from './useApolloLoadingStates'
@@ -30,8 +31,7 @@ export function usePagination<
     })
   }, [data, fetchMore, getItemsLength, networkStatus])
 
-  const { refreshing, loadingMore, loading } =
-    useApolloLoadingStates(networkStatus)
+  const { refreshing, loadingMore, loading } = useApolloLoadingStates(networkStatus)
 
   return useMemo(
     () => ({
@@ -44,16 +44,6 @@ export function usePagination<
       hasMore: data && hasMore(data),
       error: error,
     }),
-    [
-      onFetchMore,
-      refetch,
-      refreshing,
-      networkStatus,
-      loadingMore,
-      loading,
-      data,
-      hasMore,
-      error,
-    ],
+    [onFetchMore, refetch, refreshing, networkStatus, loadingMore, loading, data, hasMore, error],
   )
 }

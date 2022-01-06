@@ -2,7 +2,7 @@ import { Text } from 'native-base'
 import React from 'react'
 
 import { Layout } from '~/components'
-import { useTranslate } from '~/lib'
+import { useTranslate } from '~/lib/translate'
 import { Routes, Screen, useNavigationOptions } from '~/navigation'
 
 import strings from './InnerScreen.i18n.json'

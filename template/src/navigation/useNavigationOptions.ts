@@ -3,7 +3,7 @@ import { NativeStackNavigationOptions } from '@react-navigation/native-stack'
 import { NativeStackHeaderProps } from '@react-navigation/native-stack/lib/typescript/src/types'
 import { useLayoutEffect } from 'react'
 
-import { Descriptor, useTranslate } from '~/lib'
+import { Descriptor, useTranslate } from '~/lib/translate'
 
 interface Props {
   title?: Descriptor
