@@ -1,31 +1,20 @@
 const buildPrefix = (fileName, rootContext) =>
-  fileName.replace(rootContext, '').replace('.i18n.json', '').replace(/\//g, '.').slice(1)
+  fileName
+    .replace(rootContext, '')
+    .replace('.i18n.json', '')
+    .replace(/\//g, '.')
+    .slice(1);
 
 module.exports = {
   extractMessages: (fileName, rootContext, messages) => {
-    const prefix = buildPrefix(fileName, rootContext)
+    const prefix = buildPrefix(fileName, rootContext);
 
     return Object.keys(messages).reduce(
       (memo, currentKey) => ({
         ...memo,
-        [`${prefix}.${currentKey}`]: messages[currentKey].defaultMessage,
+        [`${messages[currentKey].id}`]: messages[currentKey].message,
       }),
       {},
-    )
+    );
   },
-
-  loadMessages: (fileName, rootContext, messages) => {
-    const prefix = buildPrefix(fileName, rootContext)
-
-    return Object.keys(messages).reduce(
-      (memo, currentKey) => ({
-        ...memo,
-        [currentKey]: {
-          id: `${prefix}.${currentKey}`,
-          defaultMessage: messages[currentKey],
-        },
-      }),
-      {},
-    )
-  },
-}
+};

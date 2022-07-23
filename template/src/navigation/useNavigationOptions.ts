@@ -1,23 +1,21 @@
-import { useNavigation } from '@react-navigation/native'
-import { NativeStackNavigationOptions } from '@react-navigation/native-stack'
-import { NativeStackHeaderProps } from '@react-navigation/native-stack/lib/typescript/src/types'
-import { useLayoutEffect } from 'react'
+import { useLayoutEffect } from 'react';
 
-import { Descriptor, useTranslate } from '~/lib/translate'
+import { NativeStackNavigationOptions } from '@react-navigation/native-stack';
+
+import { useNavigation } from './hooks';
 
 interface Props {
-  title?: Descriptor
-  options?: Partial<NativeStackHeaderProps & NativeStackNavigationOptions>
+  title?: string;
+  options?: Partial<NativeStackNavigationOptions>;
 }
 
 export const useNavigationOptions = ({ title, options }: Props) => {
-  const { t } = useTranslate()
-  const { setOptions } = useNavigation()
+  const { setOptions } = useNavigation();
 
   useLayoutEffect(() => {
     setOptions({
-      headerTitle: title ? t(title) : undefined,
+      headerTitle: title,
       ...options,
-    })
-  }, [setOptions, t, title, options])
-}
+    });
+  }, [setOptions, title, options]);
+};

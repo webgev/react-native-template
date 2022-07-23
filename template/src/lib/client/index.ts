@@ -1,2 +1,1 @@
-export * from './ClientProvider'
-export * from './authData'
+export * from './ClientProvider';

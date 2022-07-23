@@ -1,6 +1,6 @@
-import { throttle } from 'lodash'
+import { throttle } from 'lodash';
 
-type ThrottleCallback = () => void
+type ThrottleCallback = () => void;
 
 export const throttleCallback = (callback?: ThrottleCallback) =>
-  throttle(() => callback?.(), 300, { trailing: false, leading: true })
+  throttle(() => callback?.(), 300, { trailing: false, leading: true });

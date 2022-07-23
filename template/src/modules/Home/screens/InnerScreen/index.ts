@@ -1,1 +1,1 @@
-export * from './InnerScreen'
+export * from './InnerScreen';

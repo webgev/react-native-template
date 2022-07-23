@@ -1,3 +1,3 @@
-import Logo from './logo.svg'
+import { Logo } from './logo';
 
-export const Icons = { Logo }
+export const Icons = { Logo };

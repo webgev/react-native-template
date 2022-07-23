@@ -37,6 +37,12 @@
     "types": ["jest"]
   },
 
-  "include": ["src/**/*"],
-  "exclude": ["dist", "node_modules"]
+  "include": ["src/**/*", "__tests__", ".eslintrc.js", "**/*.js"],
+  "exclude": [
+    "dist",
+    "node_modules",
+    "babel.config.js",
+    "metro.config.js",
+    "jest.config.js"
+  ]
 }

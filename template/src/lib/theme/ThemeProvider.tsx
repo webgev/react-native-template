@@ -1,8 +1,10 @@
-import { NativeBaseProvider } from 'native-base'
-import React from 'react'
+import React, { PropsWithChildren } from 'react';
 
-import { theme } from './theme'
+// eslint-disable-next-line no-restricted-imports
+import { NativeBaseProvider } from 'native-base';
 
-export const ThemeProvider: React.FC = ({ children }) => {
-  return <NativeBaseProvider theme={theme}>{children}</NativeBaseProvider>
-}
+import { theme } from '~/lib/theme';
+
+export const ThemeProvider: React.FC<PropsWithChildren> = ({ children }) => {
+  return <NativeBaseProvider theme={theme}>{children}</NativeBaseProvider>;
+};

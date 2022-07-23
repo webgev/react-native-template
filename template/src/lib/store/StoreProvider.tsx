@@ -1,39 +1,46 @@
-import React, { createContext, useContext, useMemo, useState } from 'react'
-import RNBootSplash from 'react-native-bootsplash'
+import React, {
+  createContext,
+  PropsWithChildren,
+  useContext,
+  useMemo,
+  useState,
+} from 'react';
 
-import { useAsyncEffect } from '~/hooks'
-import { delay } from '~/utils'
+import RNBootSplash from 'react-native-bootsplash';
 
-import { getAuthorizationData } from '../client'
+import { useAsyncEffect } from '~/hooks';
+import { delay } from '~/utils';
+
+import { getAuthorizationToken } from '../token';
 
 interface State {
-  isAuth: boolean
+  isAuth: boolean;
 }
 
 interface Actions {
-  setIsAuth: React.Dispatch<React.SetStateAction<State['isAuth']>>
+  setIsAuth: React.Dispatch<React.SetStateAction<State['isAuth']>>;
 }
 
-const StoreContext = createContext<State & Actions>(null as never)
+const StoreContext = createContext<State & Actions>(null as never);
 
-export const useStore = () => useContext(StoreContext)
+export const useStore = () => useContext(StoreContext);
 
-export const StoreProvider: React.FC = ({ children }) => {
-  const [isAuth, setIsAuth] = useState(false)
+export const StoreProvider: React.FC<PropsWithChildren> = ({ children }) => {
+  const [isAuth, setIsAuth] = useState(false);
 
   useAsyncEffect(async () => {
-    const token = await getAuthorizationData()
-    if (!token.Authorization) {
+    const token = await getAuthorizationToken();
+    if (!token) {
       // no auth
-      setIsAuth(false)
+      setIsAuth(false);
     } else {
-      // check auth
-      setIsAuth(true)
+      // TODO: add check auth
+      setIsAuth(true);
     }
-    await delay(100)
+    await delay(100);
 
-    RNBootSplash.hide()
-  }, [])
+    void RNBootSplash.hide();
+  }, []);
 
   const store = useMemo(
     () => ({
@@ -41,7 +48,9 @@ export const StoreProvider: React.FC = ({ children }) => {
       setIsAuth,
     }),
     [isAuth],
-  )
+  );
 
-  return <StoreContext.Provider value={store}>{children}</StoreContext.Provider>
-}
+  return (
+    <StoreContext.Provider value={store}>{children}</StoreContext.Provider>
+  );
+};

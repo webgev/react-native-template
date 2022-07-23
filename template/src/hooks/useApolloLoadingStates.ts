@@ -1,4 +1,4 @@
-import { NetworkStatus } from '@apollo/client'
+import { NetworkStatus } from '@apollo/client';
 
 export const useApolloLoadingStates = (status: NetworkStatus) => {
   return {
@@ -6,5 +6,5 @@ export const useApolloLoadingStates = (status: NetworkStatus) => {
     loadingMore: status === NetworkStatus.fetchMore,
     loading: status === NetworkStatus.loading,
     setVariables: status === NetworkStatus.setVariables,
-  }
-}
+  };
+};

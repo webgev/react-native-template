@@ -1,7 +1,5 @@
+*.config.js
+./node_modules/**/*
+graphql.tsx
 generated/
 tools/
-
-babel.config.js
-metro.config.js
-react-native.config.js
-index.js

@@ -3,6 +3,6 @@ export const isHasMore = (
   limit: number,
   offset: number,
 ) => {
-  const page = offset ?? 0
-  return limit ? page + limit < totalCount + limit : false
-}
+  const page = offset ?? 0;
+  return limit ? page + limit < totalCount + limit : false;
+};

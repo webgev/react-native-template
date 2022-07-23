@@ -1,16 +1,16 @@
-import { useCallback, useMemo, useState } from 'react'
+import { useCallback, useMemo, useState } from 'react';
 
 export const useRefreshImitation = (
-  refreshing: boolean,
-  onRefreshing: () => unknown,
+  refreshing?: boolean,
+  onRefreshing?: () => unknown,
 ) => {
-  const [refreshImitation, setRefreshImitation] = useState(false)
+  const [refreshImitation, setRefreshImitation] = useState(false);
 
   const onRefreshImitation = useCallback(() => {
-    onRefreshing()
-    setRefreshImitation(true)
-    setTimeout(() => setRefreshImitation(false), 1000)
-  }, [onRefreshing])
+    onRefreshing?.();
+    setRefreshImitation(true);
+    setTimeout(() => setRefreshImitation(false), 1000);
+  }, [onRefreshing]);
 
   return useMemo(
     () => ({
@@ -18,5 +18,5 @@ export const useRefreshImitation = (
       refreshingImitation: refreshing || refreshImitation,
     }),
     [onRefreshImitation, refreshImitation, refreshing],
-  )
-}
+  );
+};

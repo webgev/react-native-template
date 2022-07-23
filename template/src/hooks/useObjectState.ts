@@ -1,18 +1,18 @@
-import { useState, useCallback, useMemo } from 'react'
+import { useState, useCallback, useMemo } from 'react';
 
 export const useObjectState = <S>(
   initialState: S,
 ): [S, <K extends keyof S>(value: Pick<S, K> | S) => void] => {
-  const [state, updateState] = useState<S>(initialState)
+  const [state, updateState] = useState<S>(initialState);
 
   const setState = useCallback(<K extends keyof S>(value: Pick<S, K> | S) => {
     updateState(state => ({
       ...state,
       ...value,
-    }))
-  }, [])
+    }));
+  }, []);
 
-  const momoState = useMemo(() => state, [state])
+  const momoState = useMemo(() => state, [state]);
 
-  return [momoState, setState]
-}
+  return [momoState, setState];
+};

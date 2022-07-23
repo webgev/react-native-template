@@ -1,2 +1,2 @@
-export * from './HomeScreen'
-export * from './InnerScreen'
+export * from './HomeScreen';
+export * from './InnerScreen';

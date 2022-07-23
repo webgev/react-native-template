@@ -1,27 +1,38 @@
-import React from 'react'
-import { WebgevApp } from 'webgev-app'
+import React from 'react';
 
-import { ClientProvider } from '~/lib/client'
-import { NotifyProvider } from '~/lib/notify'
-import { StoreProvider } from '~/lib/store'
-import { ThemeProvider } from '~/lib/theme'
-import { LocaleProvider, TranslateProvider } from '~/lib/translate'
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-import { Navigation } from './Navigation'
+import { Compose } from '~/components/Compose';
+import { LocaleProvider, TranslateProvider } from '~/lib';
+import { ClientProvider } from '~/lib/client';
+import { ConfigProvider } from '~/lib/config';
+import { loggerWrap } from '~/lib/logger';
+import { NotifyProvider } from '~/lib/notify';
+import { StoreProvider } from '~/lib/store';
+import { ThemeProvider } from '~/lib/theme';
 
-export const App = () => {
+import { AppController } from './AppController';
+import { Navigation } from './Navigation';
+import { NavigationProvider } from './Navigation/NavigationProvider';
+
+export const App = loggerWrap(() => {
   return (
-    <WebgevApp.Providers
-      providers={[
+    <Compose
+      components={[
+        SafeAreaProvider,
+        ConfigProvider,
         ThemeProvider,
         LocaleProvider,
         TranslateProvider,
         NotifyProvider,
         ClientProvider,
         StoreProvider,
+        NavigationProvider,
       ]}
     >
-      <Navigation />
-    </WebgevApp.Providers>
-  )
-}
+      <AppController>
+        <Navigation />
+      </AppController>
+    </Compose>
+  );
+});

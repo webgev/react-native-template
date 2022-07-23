@@ -1,1 +1,1 @@
-export * from './NotifyProvider'
+export * from './NotifyProvider';

@@ -1,6 +1,6 @@
 {
   "title": {
-    "id": "title",
-    "defaultMessage": "Home"
+    "id": "home.title",
+    "message": "Home"
   }
 }

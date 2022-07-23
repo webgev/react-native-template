@@ -1,15 +1,26 @@
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import React from 'react'
+import React from 'react';
 
-import { HomeScreen, InnerScreen } from '~/modules/Home'
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import { Routes } from './routes'
+import { HomeScreen, InnerScreen } from '~/modules/Home';
 
-const Stack = createNativeStackNavigator()
+import { Routes } from './routes';
+
+const Stack = createNativeStackNavigator();
+
+export interface TabsProps
+  extends Record<string, Record<string, unknown> | undefined> {
+  [Routes.Tabs]: undefined | { screen: Routes | null };
+}
 
 export const HomeScreens = [
   { screen: HomeScreen, name: Routes.Home },
   { screen: InnerScreen, name: Routes.HomeInner },
 ].map(({ screen, name }) => (
-  <Stack.Screen component={screen} key={name} name={name} options={{ ...screen?.options?.() }} />
-))
+  <Stack.Screen
+    component={screen}
+    key={name}
+    name={name}
+    options={{ ...screen?.options?.() }}
+  />
+));

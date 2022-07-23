@@ -1,18 +1,33 @@
-import { s, vs, ms, mvs } from 'react-native-size-matters'
+/* eslint-disable no-restricted-imports */
+import {
+  setDefaultWidth,
+  rem as baseRem,
+  vw as baseVw,
+  vh as baseVh,
+  SizesSheet as BaseSizesSheet,
+} from '@webgev/react-native-size';
+import { Dimensions, Insets } from 'react-native';
 
-export * from 'react-native-size-matters'
+import { isTablet } from '~/utils';
 
-export const spx = (size: number) => {
-  return `${s(size)}px`
-}
-export const vspx = (size: number) => {
-  return `${vs(size)}px`
-}
+// figma design with
+setDefaultWidth(375);
 
-export const mspx = (size: number) => {
-  return `${ms(size)}px`
+if (isTablet) {
+  setDefaultWidth(Dimensions.get('window').width - 320);
 }
 
-export const mvspx = (size: number) => {
-  return `${mvs(size)}px`
-}
+export const entireScreenWidth = Dimensions.get('window').width;
+export const entireScreenHeight = Dimensions.get('window').height;
+
+export const rem = baseRem;
+export const vh = baseVh;
+export const vw = baseVw;
+export const SizesSheet = BaseSizesSheet;
+
+export const hitSlop = (value = 20): Insets => ({
+  top: rem(value),
+  left: rem(value),
+  right: rem(value),
+  bottom: rem(value),
+});

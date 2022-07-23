@@ -1,12 +1,13 @@
-import { QueryResult, NetworkStatus } from '@apollo/client'
-import { useCallback, useMemo } from 'react'
+import { useCallback, useMemo } from 'react';
 
-import { isApolloLoading } from '~/utils'
+import { QueryResult } from '@apollo/client';
 
-import { useApolloLoadingStates } from './useApolloLoadingStates'
+import { isApolloLoading } from '~/utils';
 
-type HookArgs<T> = T extends QueryResult<infer _Data, infer Args> ? Args : never
-type HookData<T> = T extends QueryResult<infer Data, infer _Args> ? Data : never
+import { useApolloLoadingStates } from './useApolloLoadingStates';
+
+type HookArgs<T> = T extends QueryResult<unknown, infer Args> ? Args : never;
+type HookData<T> = T extends QueryResult<infer Data, unknown> ? Data : never;
 
 export function usePagination<
   Hook extends QueryResult<Data, Args>,
@@ -15,35 +16,49 @@ export function usePagination<
 >(
   query: QueryResult<Data, Args>,
   getItemsLength: (data: Data) => number,
-  hasMore: (data: Data) => boolean,
+  hasMore: (data: Data, previousData?: Data) => boolean,
 ) {
-  const { fetchMore, data, refetch, networkStatus, error } = query
+  const { fetchMore, data, refetch, networkStatus, error, previousData } =
+    query;
 
   const onFetchMore = useCallback(async () => {
     if (isApolloLoading(networkStatus)) {
-      return
+      return;
     }
 
     return fetchMore({
       variables: {
         offset: data ? getItemsLength(data) : 0,
       },
-    })
-  }, [data, fetchMore, getItemsLength, networkStatus])
+    });
+  }, [data, fetchMore, getItemsLength, networkStatus]);
 
-  const { refreshing, loadingMore, loading } = useApolloLoadingStates(networkStatus)
+  const { refreshing, loadingMore, loading, setVariables } =
+    useApolloLoadingStates(networkStatus);
 
   return useMemo(
     () => ({
-      onFetchMore: onFetchMore,
+      onFetchMore,
       onRefresh: refetch,
-      isRefreshing: refreshing || networkStatus === NetworkStatus.setVariables,
+      isRefreshing: refreshing,
       isLoadingMore: loadingMore,
       isLoading: loading,
-      data: data,
-      hasMore: data && hasMore(data),
-      error: error,
+      isSetVariables: setVariables,
+      data,
+      hasMore: data && hasMore(data, previousData),
+      error,
     }),
-    [onFetchMore, refetch, refreshing, networkStatus, loadingMore, loading, data, hasMore, error],
-  )
+    [
+      previousData,
+      onFetchMore,
+      refetch,
+      refreshing,
+      loadingMore,
+      loading,
+      setVariables,
+      data,
+      hasMore,
+      error,
+    ],
+  );
 }

@@ -1,13 +1,16 @@
-import { Flex, IFlexProps, useTheme } from 'native-base'
-import React from 'react'
+import React from 'react';
+
+import { useTheme } from '~/lib/theme';
+
+import { Flex, IFlexProps } from '../UI';
 
 interface Props extends IFlexProps {
-  hasPaddingHorizontal?: boolean
-  center?: boolean
+  hasPaddingHorizontal?: boolean;
+  center?: boolean;
 }
 
 export const Layout = ({ center, ...props }: Props) => {
-  const theme = useTheme()
+  const theme = useTheme();
   return (
     <Flex
       align={center ? 'center' : undefined}
@@ -16,5 +19,5 @@ export const Layout = ({ center, ...props }: Props) => {
       justify={center ? 'center' : undefined}
       {...props}
     />
-  )
-}
+  );
+};

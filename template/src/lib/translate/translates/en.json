@@ -1,3 +1,6 @@
 {
+  "src.modules.App.Navigation.TabBar.tabsHome": "Home",
+  "src.modules.App.Navigation.TabBar.tabsInner": "Inner",
+  "src.modules.Home.screens.InnerScreen.InnerScreen.title": "Inner",
   "src.modules.Home.screens.HomeScreen.Home.title": "Home"
 }
