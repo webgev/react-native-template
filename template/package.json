@@ -13,6 +13,8 @@
     "ts:check": "tsc --watch",
     "ts:check:ci": "tsc",
     "extract:lang": "node tools/i18n/extractMessages.js > src/lib/translate/translates/en.json",
+    "lang:sort:ru": "node tools/i18n/sortFile.js src/lib/translate/translates/ru.json",
+    "lang:sort:en": "node tools/i18n/sortFile.js src/lib/translate/translates/en.json",
     "gen": "graphql-codegen --config codegen.yml",
     "apk": "ENVFILE=.env react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle && cd ./android && ./gradlew app:assembleRelease",
     "aab": "ENVFILE=.env react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle && cd ./android && ./gradlew app:bundleRelease"

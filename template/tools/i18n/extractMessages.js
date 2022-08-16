@@ -4,6 +4,7 @@ const fs = require('fs-extra');
 const glob = require('glob');
 
 const { extractMessages } = require('./helpers/transformMessages');
+const { sort } = require('./helpers/sortObj');
 
 const rootContext = process.cwd();
 
@@ -21,12 +22,7 @@ const build = async () => {
     }),
   );
 
-  const ordered = Object.keys(defaultMessages)
-    .sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()))
-    .reduce((obj, key) => {
-      obj[key] = defaultMessages[key];
-      return obj;
-    }, {});
+  const ordered = sort(defaultMessages);
 
   console.log(JSON.stringify(ordered, null, 2));
 };
