@@ -7,3 +7,4 @@ export * from './useAppStateListener';
 export * from './useForwardRef';
 export * from './useForm';
 export * from './useOpenModal';
+export * from './useSearch';

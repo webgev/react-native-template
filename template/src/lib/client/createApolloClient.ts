@@ -11,6 +11,7 @@ import { persistCache, AsyncStorageWrapper } from 'apollo3-cache-persist';
 
 import { Logger } from '../logger';
 import { getAuthorizationToken } from '../token';
+import { Locale } from '../translate';
 
 const getAuthorizationData = async () => {
   const token = await getAuthorizationToken();
@@ -18,7 +19,7 @@ const getAuthorizationData = async () => {
   return { Authorization: token ? `Bearer ${token}` : '' };
 };
 
-export const createApolloClient = async (url: string) => {
+export const createApolloClient = async (url: string, locale: Locale) => {
   const cache = new InMemoryCache();
 
   await persistCache({
@@ -38,6 +39,7 @@ export const createApolloClient = async (url: string) => {
           headers: {
             ...headers,
             ...(await getAuthorizationData()),
+            locale,
           },
         };
       }),

@@ -15,7 +15,7 @@ const getPersistLocale = async () => {
 };
 
 const getDeviceLocale = () =>
-  deviceLocaleFormat(RnLocale.getCountry().toLowerCase());
+  deviceLocaleFormat(RnLocale.getLocales()[0].languageCode);
 
 export const getLocale = async (): Promise<Locale> => {
   const persistLocale = (await getPersistLocale()) as Locale | null;

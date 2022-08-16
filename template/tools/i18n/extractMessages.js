@@ -21,7 +21,14 @@ const build = async () => {
     }),
   );
 
-  console.log(JSON.stringify(defaultMessages, null, 2));
+  const ordered = Object.keys(defaultMessages)
+    .sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()))
+    .reduce((obj, key) => {
+      obj[key] = defaultMessages[key];
+      return obj;
+    }, {});
+
+  console.log(JSON.stringify(ordered, null, 2));
 };
 
 build().catch(error => {
