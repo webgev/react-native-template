@@ -18,10 +18,12 @@ export const dayNamesShort = (locale: Locale) => {
   return dayNames(locale, 'short');
 };
 
+const RU_LANGS = ['ru', 'by', 'ua'];
+
 export const deviceLocaleFormat = (locale: string) => {
-  if (locale !== 'ru') {
-    return 'en' as AppLocale;
+  if (RU_LANGS.includes(locale.toLowerCase())) {
+    return 'ru' as AppLocale;
   }
 
-  return locale as AppLocale;
+  return 'en' as AppLocale;
 };
