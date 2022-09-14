@@ -20,10 +20,10 @@ After creating the project, you need to configure:
 For logging use [sentry.io](http://sentry.io)
 
 ### The form
-The [formik] library is connected for the form (https://formik.org/docs/overview)
+The [formik](https://formik.org/docs/overview) library is connected for the form
 
 ### UI components
-The library [native-base] (https://nativebase.io) is connected as a UI
+The library [native-base](https://nativebase.io) is connected as a UI
 
 ### API
 Graphql with library [@apollo/client](https://www.apollographql.com/docs/react/)
