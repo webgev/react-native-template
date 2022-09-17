@@ -1,1 +1,14 @@
-{}
+{
+  "cancel": {
+    "id": "Common.cancel",
+    "message": "Cancel"
+  },
+  "yes": {
+    "id": "Common.yes",
+    "message": "Yes"
+  },
+  "no": {
+    "id": "Common.no",
+    "message": "No"
+  }
+}

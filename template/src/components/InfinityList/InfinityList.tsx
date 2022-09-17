@@ -11,7 +11,7 @@ import {
 import { useForwardRef, useRefreshImitation } from '~/hooks';
 import { defaultsScrollProps } from '~/lib/theme';
 
-import { styles } from './styles';
+import { useStyles } from './styles';
 
 type InfinityListProps<T> = {
   isRefreshing?: boolean;
@@ -46,6 +46,7 @@ export const InfinityList = memo(
         isRefreshing,
         onRefresh,
       );
+      const styles = useStyles({});
 
       useScrollToTop(innerRef);
 
@@ -61,7 +62,7 @@ export const InfinityList = memo(
             />
           </>
         );
-      }, [isLoadingMore, footer]);
+      }, [isLoadingMore, footer, styles.bottomActivityIndicator]);
 
       const fetchOnLoadMore = useCallback(() => {
         if (!isLoadingMore && onLoadMore && !refreshingImitation) {

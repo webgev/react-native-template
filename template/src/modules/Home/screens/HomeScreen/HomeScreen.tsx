@@ -2,31 +2,31 @@ import React from 'react';
 
 import { Icons } from '~/assets';
 import { Layout } from '~/components/Layout';
-import { Box, Button, Text } from '~/components/UI';
+import { Button, Text } from '~/components/UI';
 import { useTranslate } from '~/lib';
 import { ConfigSelectButton } from '~/lib/config';
-import { rem } from '~/lib/size';
 import { Routes, Screen, useNavigationOptions } from '~/navigation';
+import { useNavigation } from '~/navigation/hooks';
 
-import strings from './Home.i18n.json';
+import strings from './HomeScreen.i18n.json';
 
 export interface HomeScreenProps {}
 
-export const HomeScreen: Screen<Routes.Home> = ({ navigation }) => {
+export const HomeScreen: Screen<Routes.Home> = () => {
   const { t } = useTranslate();
+
+  const { goToHomeInner } = useNavigation();
 
   useNavigationOptions({ title: t(strings.title) });
 
   return (
     <Layout center>
-      <Icons.Logo />
-      <Text>{t(strings.title)}</Text>
-      <Button onPress={() => navigation.push(Routes.HomeInner)}>
-        Inner screen
-      </Button>
       <ConfigSelectButton>
-        <Box p={rem(30)} />
+        <Icons.Logo />
       </ConfigSelectButton>
+
+      <Text>{t(strings.title)}</Text>
+      <Button onPress={goToHomeInner}>Inner screen</Button>
     </Layout>
   );
 };

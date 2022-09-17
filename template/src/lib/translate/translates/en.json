@@ -1,6 +1,9 @@
 {
-  "src.modules.App.Navigation.TabBar.tabsHome": "Home",
-  "src.modules.App.Navigation.TabBar.tabsInner": "Inner",
-  "src.modules.Home.screens.InnerScreen.InnerScreen.title": "Inner",
-  "src.modules.Home.screens.HomeScreen.Home.title": "Home"
+  "Common.cancel": "Cancel",
+  "Common.no": "No",
+  "Common.yes": "Yes",
+  "HomeScreen.title": "Home",
+  "InnerScreen.i18n.title": "Inner",
+  "TabBar.tabsHome": "Home",
+  "TabBar.tabsInner": "Inner"
 }

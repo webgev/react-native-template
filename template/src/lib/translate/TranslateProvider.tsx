@@ -5,6 +5,7 @@ import format from 'date-fns/format';
 import * as dateLocations from 'date-fns/locale';
 import { IntlProvider, useIntl } from 'react-intl';
 
+import commonStrings from './Common.i18n.json';
 import { useLocale } from './LocaleProvider';
 import { Locale } from './locale';
 import en from './translates/en.json';
@@ -59,6 +60,7 @@ export const useTranslate = () => {
         formatDuration(duration, { locale: dateLocale, format: formats }),
       [dateLocale],
     ),
+    commonStrings,
   };
 };
 

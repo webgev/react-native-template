@@ -1,0 +1,10 @@
+{
+  "tabsHome": {
+    "id": "TabBar.tabsHome",
+    "message": "Home"
+  },
+  "tabsInner": {
+    "id": "TabBar.tabsInner",
+    "message": "Inner"
+  }
+}

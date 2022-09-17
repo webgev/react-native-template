@@ -1,9 +1,24 @@
 /* eslint-disable no-restricted-imports */
 import { extendTheme } from 'native-base';
+import { TextStyle } from 'react-native';
 
 import { rem } from '../size';
 
 // customizing Fonts - https://docs.nativebase.io/customizing-fonts
+
+export enum TextVariant {
+  default = 'default',
+  h1 = 'h1',
+}
+
+const textVariants: Record<TextVariant, TextStyle> = {
+  [TextVariant.h1]: {
+    fontSize: rem(24),
+  },
+  [TextVariant.default]: {
+    fontSize: rem(14),
+  },
+};
 
 export const theme = extendTheme({
   components: {
@@ -11,6 +26,9 @@ export const theme = extendTheme({
       baseStyle: {
         borderRadius: rem(22),
       },
+    },
+    Text: {
+      variants: textVariants,
     },
   },
   colors: {
@@ -26,7 +44,7 @@ export const theme = extendTheme({
 });
 
 // 2. Get the type of the CustomTheme
-type CustomThemeType = typeof theme;
+export type CustomThemeType = typeof theme;
 
 // 3. Extend the internal NativeBase Theme
 declare module 'native-base' {

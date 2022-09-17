@@ -1,7 +1,6 @@
-import { SizesSheet } from '~/lib/size';
-import { theme } from '~/lib/theme';
+import { createStyles } from '~/lib/theme';
 
-export const styles = SizesSheet.create({
+export const useStyles = createStyles(theme => ({
   container: {
     flex: 1,
     backgroundColor: theme.colors.transparent,
@@ -13,4 +12,4 @@ export const styles = SizesSheet.create({
     marginTop: 30,
     marginVertical: 16,
   },
-});
+}));

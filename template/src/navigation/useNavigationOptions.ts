@@ -10,7 +10,9 @@ interface Props {
 }
 
 export const useNavigationOptions = ({ title, options }: Props) => {
-  const { setOptions } = useNavigation();
+  const {
+    navigation: { setOptions },
+  } = useNavigation();
 
   useLayoutEffect(() => {
     setOptions({
