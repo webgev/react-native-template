@@ -9,7 +9,7 @@ export const useError = (error?: ApolloError, shownFlatMessage = true) => {
   useEffect(() => {
     if (error) {
       if (shownFlatMessage) {
-        void messages.error({
+        messages.error({
           message: error.message,
         });
       }

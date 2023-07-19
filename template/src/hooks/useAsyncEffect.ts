@@ -5,7 +5,7 @@ export const useAsyncEffect = <T>(
   deps?: DependencyList,
 ) => {
   useEffect(() => {
-    void action();
+    action();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, deps);
 };

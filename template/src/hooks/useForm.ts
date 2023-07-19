@@ -38,7 +38,7 @@ export const useForm = <T extends FormikValues>({
       showError = true,
     ) => ({
       onChange: (value?: T[K]) => {
-        void formik.setFieldValue(name, value);
+        formik.setFieldValue(name, value);
         formik.setFieldError(name, '');
       },
       onBlur: formik.handleBlur(name),

@@ -39,7 +39,7 @@ export const StoreProvider: React.FC<PropsWithChildren> = ({ children }) => {
     }
     await delay(100);
 
-    void RNBootSplash.hide();
+    RNBootSplash.hide();
   }, []);
 
   const store = useMemo(

@@ -51,7 +51,9 @@ export const InfinityList = memo(
       useScrollToTop(innerRef);
 
       const renderFooter = useCallback(() => {
-        if (!isLoadingMore) return <>{footer}</>;
+        if (!isLoadingMore) {
+          return <>{footer}</>;
+        }
 
         return (
           <>

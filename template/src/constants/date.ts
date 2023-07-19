@@ -62,10 +62,10 @@ export const DATE_PATTERN = {
   /**
    * 2020-12-19T12:53:49.049Z
    */
-  ISO: `yyyy-MM-dd'T'HH:mm:ss.sss'Z'`,
+  ISO: "yyyy-MM-dd'T'HH:mm:ss.sss'Z'",
 
   /**
    * 2020-12-19T12:53
    */
-  ISO_DATE_TIME: `yyyy-MM-dd'T'HH:mm`,
+  ISO_DATE_TIME: "yyyy-MM-dd'T'HH:mm",
 } as const;

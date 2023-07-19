@@ -7,7 +7,7 @@ export const useBlockNavigation = (
   callback: (goBack: () => void) => void,
   active = true,
 ) => {
-  const { navigation } = useNavigation();
+  const navigation = useNavigation();
 
   useEffect(
     () =>

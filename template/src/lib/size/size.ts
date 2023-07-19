@@ -1,4 +1,3 @@
-/* eslint-disable no-restricted-imports */
 import {
   setDefaultWidth,
   rem as baseRem,

@@ -6,8 +6,8 @@ export const useObjectState = <S>(
   const [state, updateState] = useState<S>(initialState);
 
   const setState = useCallback(<K extends keyof S>(value: Pick<S, K> | S) => {
-    updateState(state => ({
-      ...state,
+    updateState(newState => ({
+      ...newState,
       ...value,
     }));
   }, []);

@@ -26,6 +26,7 @@ export const TranslateProvider: React.FC<PropsWithChildren> = ({
       locale={locale}
       messages={TRANSLATION[locale]}
     >
+      {/* @ts-ignore */}
       {children}
     </IntlProvider>
   );
