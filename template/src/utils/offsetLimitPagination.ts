@@ -15,13 +15,12 @@ export const offsetLimitPagination: FieldPolicy['merge'] = (
   const merged = existing ? existingItems.slice(0, incoming?.totalCount) : [];
   if (args) {
     const _b = args.offset;
+    // eslint-disable-next-line no-void
     const offset = _b === void 0 ? 0 : _b;
     for (let i = 0; i < incomingItems.length; ++i) {
-      // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
       merged[offset + i] = incomingItems[i];
     }
   } else {
-    // eslint-disable-next-line prefer-spread
     merged.push.apply(merged, incomingItems);
   }
 

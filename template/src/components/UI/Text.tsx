@@ -1,6 +1,5 @@
 import React from 'react';
 
-/* eslint-disable no-restricted-imports */
 import { Text as TextBase } from 'native-base';
 
 import { TextVariant } from '~/lib/theme';

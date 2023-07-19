@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-restricted-imports
 import { useRoute as useRouteBase } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 

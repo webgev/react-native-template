@@ -15,9 +15,13 @@ export interface HomeScreenProps {}
 export const HomeScreen: Screen<Routes.Home> = () => {
   const { t } = useTranslate();
 
-  const { goToHomeInner } = useNavigation();
+  const navigation = useNavigation();
 
   useNavigationOptions({ title: t(strings.title) });
+
+  const goToInnerScreen = () => {
+    navigation.push(Routes.HomeInner);
+  };
 
   return (
     <Layout center>
@@ -26,7 +30,7 @@ export const HomeScreen: Screen<Routes.Home> = () => {
       </ConfigSelectButton>
 
       <Text>{t(strings.title)}</Text>
-      <Button onPress={goToHomeInner}>Inner screen</Button>
+      <Button onPress={goToInnerScreen}>Inner screen</Button>
     </Layout>
   );
 };

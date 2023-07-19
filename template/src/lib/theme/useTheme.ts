@@ -1,4 +1,3 @@
-/* eslint-disable no-restricted-imports */
 import { useMemo } from 'react';
 
 import { useTheme as useThemeBase, getColor } from 'native-base';

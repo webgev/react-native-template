@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { SvgProps } from 'react-native-svg';
 
 import { Icons } from '~/assets';
@@ -9,19 +8,11 @@ import { useTranslate } from '~/lib';
 import { rem } from '~/lib/size';
 import { useTheme } from '~/lib/theme';
 import { Routes } from '~/navigation';
-import { HomeScreens } from '~/navigation/stacks';
 
 import strings from './TabBar.i18n.json';
+import { HomeStack } from '~/modules/Home/HomeStacks';
 
 const Tab = createBottomTabNavigator();
-const Stack = createNativeStackNavigator();
-
-const HomeStack = () => <Stack.Navigator>{HomeScreens}</Stack.Navigator>;
-const InnerStack = () => (
-  <Stack.Navigator initialRouteName={Routes.HomeInner}>
-    {HomeScreens}
-  </Stack.Navigator>
-);
 
 export const TabBar = () => {
   const { t } = useTranslate();
@@ -46,7 +37,7 @@ export const TabBar = () => {
         }}
       />
       <Tab.Screen
-        component={InnerStack}
+        component={HomeStack}
         name={Routes.InnerStack}
         options={{
           tabBarIcon: tabBarIcon(Icons.Logo, Icons.Logo),

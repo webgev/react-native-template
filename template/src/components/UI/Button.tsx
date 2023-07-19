@@ -1,4 +1,3 @@
-/* eslint-disable no-restricted-imports */
 import React from 'react';
 
 import { Button as ButtonBase, IButtonProps } from 'native-base';

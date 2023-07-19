@@ -1,5 +1,3 @@
-/* eslint-disable no-console */
-
 import * as Sentry from '@sentry/react-native';
 import { Primitive } from '@sentry/types';
 

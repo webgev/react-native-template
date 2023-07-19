@@ -1,4 +1,3 @@
-/* eslint-disable no-restricted-imports */
 import { extendTheme } from 'native-base';
 import { TextStyle } from 'react-native';
 

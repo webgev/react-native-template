@@ -15,7 +15,9 @@ import { Locale } from '../translate';
 
 const getAuthorizationData = async () => {
   const token = await getAuthorizationToken();
-  if (!token) return {};
+  if (!token) {
+    return {};
+  }
   return { Authorization: token ? `Bearer ${token}` : '' };
 };
 

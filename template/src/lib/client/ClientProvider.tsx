@@ -17,11 +17,13 @@ export const ClientProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const [locale] = useLocale();
 
   useAsyncEffect(async () => {
-    const client = await createApolloClient(config.API_BASE, locale);
-    setClient(client);
+    const newClient = await createApolloClient(config.API_BASE, locale);
+    setClient(newClient);
   }, [config.API_BASE]);
 
-  if (!client) return null;
+  if (!client) {
+    return null;
+  }
 
   return <ApolloProvider client={client}>{children}</ApolloProvider>;
 };

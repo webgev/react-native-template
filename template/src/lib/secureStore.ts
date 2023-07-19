@@ -18,7 +18,6 @@ export class SecureStore {
   };
 
   public setItem = async (key: string, value: string) => {
-    // eslint-disable-next-line no-useless-catch
     try {
       await SecureKeystore.set(key, value, { accessible: this.accessibleType });
     } catch (error) {
@@ -27,7 +26,6 @@ export class SecureStore {
   };
 
   public removeItem = async (key: string) => {
-    // eslint-disable-next-line no-useless-catch
     try {
       await SecureKeystore.remove(key);
     } catch (error) {

@@ -1,40 +1,11 @@
 {
+  "extends": "@tsconfig/react-native/tsconfig.json",
   "compilerOptions": {
-    "importHelpers": true,
-    "noEmitHelpers": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noEmitOnError": true,
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitReturns": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "allowSyntheticDefaultImports": true,
-    "jsx": "react-native",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "module": "esnext",
-    "moduleResolution": "node",
-    "preserveConstEnums": true,
-    "pretty": true,
-    "removeComments": true,
-    "target": "esnext",
-    "skipLibCheck": true,
-    "resolveJsonModule": true,
-
     "baseUrl": "./",
     "outDir": "./dist",
     "paths": {
       "~/*": ["./src/*"]
-    },
-
-    "allowJs": true,
-    "esModuleInterop": true,
-    "isolatedModules": true,
-    "noEmit": true,
-
-    "types": ["jest"]
+    }
   },
 
   "include": ["src/**/*", "__tests__", ".eslintrc.js", "**/*.js"],

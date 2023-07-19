@@ -1,6 +1,5 @@
 import React, { PropsWithChildren } from 'react';
 
-// eslint-disable-next-line no-restricted-imports
 import { NativeBaseProvider } from 'native-base';
 
 import { theme } from '~/lib/theme';

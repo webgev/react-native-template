@@ -10,10 +10,5 @@ export class Navigate {
 
   constructor(navigation: Navigation) {
     this.navigation = navigation;
-    this.goToHomeInner = this.goToHomeInner.bind(this);
-  }
-
-  goToHomeInner() {
-    this.navigation.push(Routes.HomeInner);
   }
 }

@@ -25,9 +25,9 @@ export const LocaleProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const [init, setInit] = useState(false);
   const [locale, setLocale] = useState(Locale.En);
 
-  const updateLocale = useCallback((locale: Locale) => {
-    setLocale(locale);
-    void setPersistLocale(locale);
+  const updateLocale = useCallback((newLocale: Locale) => {
+    setLocale(newLocale);
+    setPersistLocale(newLocale);
   }, []);
 
   const state = useMemo<LocaleType>(
@@ -37,8 +37,8 @@ export const LocaleProvider: React.FC<PropsWithChildren> = ({ children }) => {
 
   useEffect(() => {
     getLocale()
-      .then(locale => {
-        setLocale(locale);
+      .then(newLocale => {
+        setLocale(newLocale);
         setInit(true);
       })
       .catch(() => {
