@@ -13,7 +13,6 @@ export const Layout: React.FC<React.PropsWithChildren<Props>> = ({
   ...props
 }) => {
   const styles = useStyles({ center });
-
   return <View style={styles.root} {...props} />;
 };
 
@@ -24,7 +23,7 @@ interface StyleProps {
 const useStyles = createStyles((theme, { center }: StyleProps) => ({
   root: {
     flex: 1,
-    backgroundColor: theme.colors.white,
+    backgroundColor: theme.colors.bg,
     alignItems: center ? 'center' : undefined,
     justifyContent: center ? 'center' : undefined,
   },

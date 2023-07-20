@@ -3,9 +3,10 @@ import { useEffect } from 'react';
 import { ApolloError } from '@apollo/client';
 
 import { Logger } from '~/lib/logger';
-import { messages } from '~/lib/messages';
+import { useMessage } from '~/lib/messages';
 
 export const useError = (error?: ApolloError, shownFlatMessage = true) => {
+  const messages = useMessage();
   useEffect(() => {
     if (error) {
       if (shownFlatMessage) {
@@ -15,5 +16,5 @@ export const useError = (error?: ApolloError, shownFlatMessage = true) => {
       }
       Logger.error(error);
     }
-  }, [error, shownFlatMessage]);
+  }, [error, messages, shownFlatMessage]);
 };

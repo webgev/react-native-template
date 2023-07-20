@@ -1,34 +1,39 @@
+import { useMemo } from 'react';
+
 import { showMessage, MessageOptions } from 'react-native-flash-message';
 
-import { theme } from './theme';
+import { useTheme } from './theme';
 
-export const messages = {
-  info: async (option: MessageOptions) => {
-    await showMessage({
-      ...option,
-      icon: 'info',
-      backgroundColor: theme.colors.info,
-    });
-  },
-  success: async (option: MessageOptions) => {
-    await showMessage({
-      ...option,
-      icon: 'info',
-      backgroundColor: theme.colors.success,
-    });
-  },
-  error: async (option: MessageOptions) => {
-    await showMessage({
-      ...option,
-      icon: 'info',
-      backgroundColor: theme.colors.error,
-    });
-  },
-  warning: async (option: MessageOptions) => {
-    await showMessage({
-      ...option,
-      icon: 'info',
-      backgroundColor: theme.colors.warning,
-    });
-  },
+export const useMessage = () => {
+  const { colors } = useTheme();
+
+  return useMemo(
+    () => ({
+      info: (option: MessageOptions) =>
+        showMessage({
+          ...option,
+          icon: 'info',
+          backgroundColor: colors.info,
+        }),
+      success: (option: MessageOptions) =>
+        showMessage({
+          ...option,
+          icon: 'success',
+          backgroundColor: colors.success,
+        }),
+      error: (option: MessageOptions) =>
+        showMessage({
+          ...option,
+          icon: 'danger',
+          backgroundColor: colors.error,
+        }),
+      warning: (option: MessageOptions) =>
+        showMessage({
+          ...option,
+          icon: 'warning',
+          backgroundColor: colors.warning,
+        }),
+    }),
+    [colors],
+  );
 };

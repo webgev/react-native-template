@@ -3,7 +3,7 @@ import { useMemo } from 'react';
 import { StyleSheet } from 'react-native';
 
 import { SizesSheet } from '~/lib/size';
-import { CustomThemeType, useTheme } from '~/lib/theme';
+import { ThemeType, useTheme } from '~/lib/theme';
 import { StyleType } from '~/lib/theme/types';
 
 export function createStyles<
@@ -11,7 +11,7 @@ export function createStyles<
   P extends Record<string, string | number | boolean | undefined | null>,
 >(
   factory: (
-    theme: CustomThemeType,
+    theme: ThemeType,
     params: P,
   ) => StyleSheet.NamedStyles<S> | StyleType,
 ) {

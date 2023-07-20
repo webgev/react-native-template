@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-restricted-imports
 import { useNavigation as useUntypedNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 

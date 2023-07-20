@@ -1,19 +1,21 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 
-import { Button as ButtonBase, IButtonProps } from 'native-base';
+import { TouchableOpacity } from 'react-native';
+
+import { Text } from './Text';
 
 interface ButtonProps {
-  onPress?: IButtonProps['onPress'];
   isDisabled?: boolean;
   isLoadingText?: string;
   isLoading?: boolean;
-  rightIcon?: IButtonProps['rightIcon'];
-  leftIcon?: IButtonProps['leftIcon'];
-  size?: IButtonProps['size'];
-  variant?: IButtonProps['variant'];
-  colorScheme?: IButtonProps['colorScheme'];
+  children?: ReactNode | string;
+  onPress: () => void;
 }
 
-export const Button: React.FC<React.PropsWithChildren<ButtonProps>> = props => (
-  <ButtonBase {...props} />
-);
+export const Button: React.FC<ButtonProps> = ({ children, ...props }) => {
+  if (typeof children === 'string') {
+    children = <Text>children</Text>;
+  }
+
+  return <TouchableOpacity {...props} children={children} />;
+};

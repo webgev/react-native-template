@@ -17,6 +17,7 @@ Sentry.init({
   beforeSend: (event, hint) => {
     // don't send events on dev
     if (__DEV__) {
+      // eslint-disable-next-line no-console
       console.warn(hint?.originalException ?? hint?.syntheticException);
       return null;
     }

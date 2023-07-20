@@ -5,6 +5,7 @@ import { Layout } from '~/components/Layout';
 import { Button, Text } from '~/components/UI';
 import { useTranslate } from '~/lib';
 import { ConfigSelectButton } from '~/lib/config';
+import { useTheme } from '~/lib/theme';
 import { Routes, Screen, useNavigationOptions } from '~/navigation';
 import { useNavigation } from '~/navigation/hooks';
 
@@ -19,6 +20,8 @@ export const HomeScreen: Screen<Routes.Home> = () => {
 
   useNavigationOptions({ title: t(strings.title) });
 
+  const theme = useTheme();
+
   const goToInnerScreen = () => {
     navigation.push(Routes.HomeInner);
   };
@@ -31,6 +34,7 @@ export const HomeScreen: Screen<Routes.Home> = () => {
 
       <Text>{t(strings.title)}</Text>
       <Button onPress={goToInnerScreen}>Inner screen</Button>
+      <Button onPress={theme.toggleColorMode}>Toogle theme</Button>
     </Layout>
   );
 };

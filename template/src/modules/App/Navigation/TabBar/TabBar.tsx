@@ -7,24 +7,24 @@ import { Icons } from '~/assets';
 import { useTranslate } from '~/lib';
 import { rem } from '~/lib/size';
 import { useTheme } from '~/lib/theme';
+import { HomeStack } from '~/modules/Home/HomeStacks';
 import { Routes } from '~/navigation';
 
 import strings from './TabBar.i18n.json';
-import { HomeStack } from '~/modules/Home/HomeStacks';
 
 const Tab = createBottomTabNavigator();
 
 export const TabBar = () => {
   const { t } = useTranslate();
 
-  const { colors, getColor } = useTheme();
+  const { colors } = useTheme();
 
   return (
     <Tab.Navigator
       backBehavior="none"
       screenOptions={{
-        tabBarActiveTintColor: getColor(colors.lightBlue[500]),
-        tabBarInactiveTintColor: getColor(colors.gray[400]),
+        tabBarActiveTintColor: colors.success,
+        tabBarInactiveTintColor: colors.success,
       }}
     >
       <Tab.Screen
