@@ -4,7 +4,7 @@ const alias = { '~': path.resolve(__dirname, 'src') };
 module.exports = {
   presets: ['module:metro-react-native-babel-preset'],
   plugins: [
-    ['module-resolver', { alias }],
+    ['module-resolver', { alias, extensions: ['.js', '.ts', '.tsx', '.json'] }],
     [
       'formatjs',
       {

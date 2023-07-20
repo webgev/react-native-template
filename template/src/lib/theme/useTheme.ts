@@ -1,15 +1,5 @@
-import { useMemo } from 'react';
+import { useContext } from 'react';
 
-import { useTheme as useThemeBase, getColor } from 'native-base';
+import { ThemeProviderContext } from './ThemeProvider';
 
-export const useTheme = () => {
-  const theme = useThemeBase();
-
-  return useMemo(
-    () => ({
-      ...theme,
-      getColor: (color: string) => getColor(color, theme.colors, theme),
-    }),
-    [theme],
-  );
-};
+export const useTheme = () => useContext(ThemeProviderContext);

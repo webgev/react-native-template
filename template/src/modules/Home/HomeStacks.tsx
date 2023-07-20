@@ -1,7 +1,10 @@
 import React from 'react';
-import { Routes, Screen } from '~/navigation';
-import { HomeScreen, InnerScreen } from './screens';
+
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+import { Routes, Screen } from '~/navigation';
+
+import { HomeScreen, InnerScreen } from './screens';
 
 const Stack = createNativeStackNavigator();
 
